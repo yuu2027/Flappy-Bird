@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ObstacleCon : MonoBehaviour
 {
-    public float moveSpeed = 0.5f;
+    public float moveSpeed = 0.01f;
     ObjectPoolManager objectPool;
     Timer timer;
     ObstacleManager obstacleManager;
@@ -31,17 +31,17 @@ public class ObstacleCon : MonoBehaviour
         if (count == 0)
         {
             //Debug.Log("signal:" + signal);
-            if(timer.gametimer < 20){ signal = 0; }
-            else { signal = 1; }
+            if (timer.gametimer >= 20 && obstacleManager.obstacleCount == 1) { signal = 1; }
+            else { signal = 0; }
             count = 1;
         }
-        if (signal == 0 || obstacleManager.obstacleCount == 2)
+        if (signal == 0)
         {
             float x = Time.deltaTime * moveSpeed;
             transform.Translate(-x, 0, 0);
             
         }
-        else if (signal == 1 && obstacleManager.obstacleCount == 1)
+        else if (signal == 1)
         {
             float y = 0;
             y = 0.01f * Mathf.Sin(Time.time * frequency * 5);
@@ -85,6 +85,7 @@ public class ObstacleCon : MonoBehaviour
     {
         //Debug.Log("èoåªà íu:" + _pos.y);
         transform.position = _pos;
+        count = 0;
     }
 
     public void HideFromStage()

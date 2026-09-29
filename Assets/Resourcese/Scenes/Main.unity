@@ -1046,6 +1046,7 @@ MonoBehaviour:
   gameManager: {fileID: 1133899323}
   resultCanvas: {fileID: 1048279219}
   ranking: {fileID: 1133899327}
+  invisible: 1
 --- !u!61 &473039904
 BoxCollider2D:
   m_ObjectHideFlags: 0

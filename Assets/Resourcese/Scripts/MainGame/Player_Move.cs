@@ -17,6 +17,8 @@ public class Player_Move : MonoBehaviour
     private GameObject resultCanvas;
     [SerializeField]
     private Ranking ranking;
+    [SerializeField]
+    private bool invisible = false;
     private bool canAction = false;
     private MyGameManagerData gameManagerData;
 
@@ -63,7 +65,7 @@ public class Player_Move : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "DeadWall")
+        if (collision.gameObject.tag == "DeadWall" && !invisible)
         {
             StartCoroutine(EndGame());
         }
