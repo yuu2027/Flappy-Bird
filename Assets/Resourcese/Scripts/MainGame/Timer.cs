@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         timerText = GetComponent<TextMeshProUGUI>();
-        gametimer = 0;
+        gametimer = 20;
     }
 
     void Update()
